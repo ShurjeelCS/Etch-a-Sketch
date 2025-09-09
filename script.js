@@ -33,12 +33,22 @@ function createGrid(squares) {
     }
     color();
 }
-
+let opacity = 0;
 function color() {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "red"; 
+            const r = randomColor();
+            const g = randomColor();
+            const b = randomColor();
+            box.style.backgroundColor = `rgba(${r}, ${g}, ${b})`;
+            
+            
         });
     });
 }
+
+function randomColor() {
+    return Math.floor(Math.random() * 256);
+}
+console.log(randomColor());
